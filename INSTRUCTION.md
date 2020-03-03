@@ -1,3 +1,8 @@
+---
+path: '/'
+title: 'Quizrr code test'
+---
+
 ## Scenario
 
 You've been asked to create a first iteration of a simple web client for viewing
@@ -18,12 +23,12 @@ following functionality to be in place:
 - Log in with username and password
 - An overview listing all the users' factories, perferably ordered by most
   active within the given time period (has the most sessions).
-- A details view of factories, listing a breakdown of sessions in job levels,
-  and genders.
+- A detailed factory view, listing a breakdown of sessions by job levels and
+  genders (you can explore this more in the API playground further down).
 
-Beyond this, feel free to approach the project as you see fit. Choose which
-additional tools and technologies you want to use for things like styling,
-running builds, linting, routing, etc.
+You will find some practical constants in `src/data/constants`, showing you
+which training series exists, which are available in what markets and the order
+of the learning modules within each training series.
 
 ## Evaluation
 
@@ -41,17 +46,17 @@ the project as a starting point, we will talk about things like:
 - What it was like to work with the technologies you used in the project
 - What you feel would be good next step for the project, if it were a real app
 
-## Read and Write API
+## Read and Write services
 
-The **read** API is available at `https://code-test.api.read.quizrrapp.com`. It
-requires a JSON Web Token (JWT) to authenticate users.
+The **read** service is available at `https://code-test.api.read.quizrrapp.com`.
+It requires a JSON Web Token (JWT) to authenticate users.
 
-The **write** API is available at `https://code-test.api.write.quizrrapp.com`. Here is
-where you aquire a JWT to feed into the read API.
+The **write** service is available at `https://code-test.api.write.quizrrapp.com`.
+Here is where you aquire a JWT to feed into the read service.
 
 ### Endpoints
 
-#### On write API
+#### Write service
 
 **`POST /auth`**
 
@@ -70,7 +75,7 @@ Payload:
 You will be provided with username and password for authentication. The strategy
 should be set to `local`.
 
-#### `DELETE /auth`
+**`DELETE /auth`**
 
 Sign out and revoke JWT-token.
 
@@ -82,15 +87,25 @@ The request has to include the token in headers.
 }
 ```
 
-#### On read API
+#### Read service
 
 **Read API playground**
 
 `https://code-test.api.read.quizrrapp.com/graphql`
 
-This is a GraphQL playgound. Here you can explore the structure of the schema.
+This is a GraphQL playgound, where you can explore how the schema structure and
+how it works. Remember that you need to be authenticated to be able to make
+requests.
 
-Some examples:
+**HTTP-headers**
+
+```
+{
+  authorization: `Bearer [JWT]`,
+}
+```
+
+**Some examples**
 
 ```
 // Get the users factories
@@ -124,7 +139,7 @@ Some examples:
 // Get statistics for one or several factories
 
 {
-  sessions(filter:{factory:[factoryId1, factoryId2, ...]}) {
+  sessions(filter:{factory:[factoryId1, factoryId2, ...], fromDate:"YYYY-MM-DD", market:"market name", ...}) {
     byJobLevel {
       worker
       manager
