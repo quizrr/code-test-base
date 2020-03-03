@@ -67,12 +67,12 @@ Payload:
 ```
 {
   "strategy": "local",
-  "username": "username",
+  "email": "email",
   "password": "password"
 }
 ```
 
-You will be provided with username and password for authentication. The strategy
+You will be provided with email and password for authentication. The strategy
 should be set to `local`.
 
 **`DELETE /auth`**
