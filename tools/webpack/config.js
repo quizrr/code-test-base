@@ -3,7 +3,6 @@ const path = require('path');
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const rootPath = path.resolve(__dirname, '../../');
 const sourceFolder = path.resolve(rootPath, 'src');
