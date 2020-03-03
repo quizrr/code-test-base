@@ -1,0 +1,8 @@
+# Build output
+dist
+
+# various other folders
+node_modules
+
+# files
+.DS_Store

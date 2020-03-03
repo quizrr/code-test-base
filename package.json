@@ -1,0 +1,52 @@
+{
+  "name": "quizrr-code-test-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config tools/webpack/config.js --mode=development",
+    "build": "webpack --config tools/webpack/config.js --mode=production && cp src/assets/_redirects dist/_redirects",
+    "postinstall": "patch-package"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^4.0.0-beta.11",
+    "prettier": "^1.18.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^5.0.0-beta.14",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "patch-package": "^6.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^4.4.0",
+    "styled-components-breakpoint": "^2.1.1",
+    "styled-components-grid": "^2.2.2",
+    "styled-components-spacing": "^3.1.1",
+    "styled-reset": "^4.0.2"
+  }
+}
